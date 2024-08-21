@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+		<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+		<title>Travel Agency</title>
+ 		<link rel="stylesheet" href="font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+			integrity="sha384-hjR8r+3nXL5dSL+Jwz5faa4OJ2wCvh1zIbuwOv2J6B7z5taaZDI4W+5Pge/06FfdX"
+			crossorigin="anonymous"/>
+</head>
+    <body>
+        <style>
+
+            @import url('htttps://fonts.googleapis.com/css2?family=Ninito:wght@200;300;400;600;700&dispaly=swap');
+
+            :root{
+                --orange: #ffa500;
+            }
+            *{
+                font-family: 'Numito', sans-serif;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                text-transform: capitalize;
+                outline: none;
+                border: none;
+                text-decoration: none;
+                transition: all .2s linear;
+            }
+            *::selection{
+                background: var(--orange);
+                color: #fff;
+            }
+            html{
+                font-size: 62.5%;
+                scroll-padding-top: 6rem;
+                scroll-behavior: smooth;
+            }
+            section{
+                padding: 2rem 9%;
+            }
+            .heading{
+                text-align: center;
+                padding: 2.5rem 0;
+            }
+            .heading span{
+                font-size: 3.5rem;
+                background: rgba(255, 155, 0, .2);
+                color: var(--orange);
+                border-radius: .5rem;
+                padding: .2rem 1rem;
+            }
+            .heading span.space{
+                background: none;
+            }
+            .btn{
+                display: inline-block;
+                margin-top: 1ren;
+                background-color: var(--orange);
+                color: #fff;
+                padding: .8rem 3rem;
+                border: .2rem solid var(--orange);
+                cursor: pointer;
+                font-size: 1.7rem;
+            }
+            .btn:hover{
+                background: rgba(255, 165, 0, .2);
+                color: var(--orange);
+            }
+            header{
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                background: #FFE5B6;
+                z-index: 1000;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 2rem 9%;
+            }
+            header .logo{
+                font-size: 2.5rem;
+                font-weight: bolder;
+                color: #fff;
+                text-transform: uppercase;
+            }
+            header .logo span{
+                color: var(--orange);
+            }
+            header .navbar a{
+                color: #000;
+                font-size: 2rem;
+                margin: .8rem; 
+            }
+            header .navbar a:hover{
+                color: var(--orange);
+            }
+            header .icons i{
+                font-size: 2.5rem;
+                color: #000;
+                cursor: pointer;
+                margin-right: 2rem;
+            }
+            header .icons i:hover{
+                color: var(--orange);
+            }
+						header .search-bar-container{
+                position: absolute;
+                top: -100%;
+                left: 0;
+                right: 0;
+                padding: 1.5rem 2rem;
+                background: #333;
+                border-top: .1rem solid rgba(255, 255, 2555, .2);
+                display: flex;
+                align-items: center;
+                z-index: 1001;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+             }
+             header .search-bar-container.active{
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+             }
+             header .search-bar-container #search-bar{
+                width: 100%;
+                padding: 1rem;
+                text-transform: none;
+                color: #333;
+                font-size: 1.7rem;
+                border-radius: .5rem;
+             }
+             header .search-bar-container label{
+                color: #fff;
+                cursor: pointer;
+                font-size: 3rem;
+                margin-left: 1.5rem;
+             }
+             header .search-bar-container label:hover{
+                color: var(--orange);
+             }
+             .login-form-container{
+                position: fixed;
+                top: -120%;
+                left: 0;
+                z-index: 10000;
+                min-height: 100vh;
+                width: 100%;
+                background: rgba(0, 0, 0, .7);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+             }
+             .login-form-container.active{
+                top: 0;
+             }
+             .login-form-container form{
+                margin: 2rem;
+                padding: 1.5rem 2rem;
+                border-radius: .5rem;
+                background: #fff;
+                width: 50rem;
+             }
+             .login-form-container form h3{
+                font-size: 3rem;
+                color: #444;
+                text-transform: uppercase;
+                text-align: center;
+                padding: 1rem 0;
+             }
+             .login-form-container form .box{
+                width: 100%;
+                padding: 1rem;
+                font-size: 1.7rem;
+                color: #333;
+                margin: .6rem 0;
+                border: .1rem solid rgba(0, 0, 0, 0.3);
+                text-transform: none;
+             }
+             .login-form-container for .box:focus{
+                border-color: var(--orange);
+             }
+             .login-form-container form #remember{
+                margin: 2rem 0;
+             }
+             .login-form-container form label{
+                font-size: 1.5rem;   
+             }
+             .login-form-container form .btn{
+                display: block;
+                width: 100%;
+             }
+             .login-form-container form p{
+                padding: .5rem 0;
+                font-size: 1.5rem;
+                color: #666;
+             }
+             .login-form-container form p a{
+                color: var(--orange);
+             }
+            .login-form-container form p a:hover{
+                color: #333;
+                text-decoration: underline;
+            }
+            .login-form-container #form-close{
+                position: absolute;
+                top: 2rem;
+                right: 3rem;
+                font-size: 5rem;
+                color: #fff;
+                cursor: pointer;
+            }
+            #menu-bar{
+                color: #fff;
+                border: .1rem solid #fff;
+                border-radius: .5rem;
+                font: 3rem;
+                padding: .5rem 1.2rem;
+                cursor: pointer;
+                display: none;
+            }
+            .home{
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-flow: column;
+                position: relative;
+                z-index: 0;
+            }
+            .home .content{
+                text-align: center;
+            }
+            .home .content h3{
+                font-size: 4.5rem;
+                color: #000;
+                text-transform: uppercase;
+                text-shadow: 0.3rem .5rem rgba(0, 0, 0, .1);
+            }
+            .home .content p{
+                font-size: 2.5rem;
+                color: #000;
+                padding: 0.5rem 0;
+            }
+            .home .video-container video{
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+            .home .controls{
+                padding: 1rem;
+                border-radius: 5rem;
+                background: rgba(0, 0, 0, .7);
+                position: relative;
+                top: 10rem;  
+            }
+            .home .controls .vid-btn{
+                height: 2rem;
+                width: 2rem;
+                display: inline-block;
+                border-radius: 50%;
+                background: #fff;
+                cursor: pointer;
+                margin: 0 .5rem;
+            }
+            .home .controls .vid-btn.active{
+                background: var(--orange);
+            }
+			.book .row {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 1.5rem;
+			}
+			.book .row .img img {
+				width: 100%;
+				height: 500px;
+			}
+			.book .row form {
+				flex: 1 1 40rem;
+				box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+				border-radius: 0.5rem;
+			}
+			.book .row form .inputBox {
+				padding: 0.5rem 0;
+			}
+			.book .row form .inputBox input {
+				width: 100%;
+				padding: 1rem;
+				border: 1px solid rgba(0, 0, 0, 0.1); /* Changed from 1rem to 1px */
+				font-size: 1.7rem;
+				color: #333;
+				text-transform: none;
+			}
+			.book .row form .inputBox h3 {
+				font-size: 2rem;
+				padding: 1rem 0;
+				color: #666;
+			}
+			.packages .box-container {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 2rem;
+				justify-content: space-between;
+			}
+
+			.packages .box-container .box {
+				flex: 0 1 calc(33.33% - 2rem);
+				border-radius: 0.5rem;
+				overflow: hidden;
+				box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+				background-color: #fff;
+			}
+			.packages .box-container .box img {
+				height: 25rem;
+				width: 100%;
+				object-fit: cover;
+			}
+			.packages .box-container .box .content {
+				padding: 2rem;
+				text-align: center;
+			}
+			.packages .box-container .box .content h3 {
+				font-size: 2rem;
+				color: #333;
+				margin-bottom: 1rem;
+			}
+			.packages .box-container .box .content h3 i {
+				color: var(--orange);
+			}
+			.packages .box-container .box .content p {
+				font-size: 1.7rem;
+				color: #666;
+				padding: 1rem 0;
+                text-transform: none;
+			}
+			.packages .box-container .box .content .stars i {
+				font-size: 1.7rem;
+				color: var(--orange);
+			}
+			.packages .box-container .box .content .price {
+				font-size: 2rem;
+				color: #333;
+				padding: 1rem;
+			}
+			.packages .box-container .box .content .price span {
+				color: #666;
+				font-size: 1.5rem;
+				text-decoration: line-through;
+			}
+			.services .box-container{
+				display: flex;
+				flex-wrap: wrap;
+				gap: 1.5rem;
+			}
+			.services .box-container .box{
+				flex: 1 1 30rem;
+				border-radius: .5rem;
+				padding: 1rem;
+				text-align: center;
+			}
+			.services .box-container .box i{
+				padding: 1rem;
+				font-size: 5rem;
+				color: var(--orange);
+			}
+			.services .box-container .box h3{
+				font-size: 2.5rem;
+				color: #333;
+			}
+			.services .box-container .box p{
+				font-size: 1.5rem;
+				color: #666;
+				padding: 1rem 0;
+			}
+			.services .box-container .box:hover{
+				box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+			}
+			.gallery .box-container{
+				display: flex;
+				flex-wrap: wrap;
+				gap: 1.5rem;
+			}
+			.gallery .box-container .box{
+				overflow: hidden;
+				box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+				border: 1rem solid #fff;
+				flex: 1 1 30rem;
+				border-radius: .5rem;
+				height: 25rem;
+				position: relative;
+			}
+			.gallery .box-container .box img{
+				height: 100%;
+				width: 100%;
+				object-fit: cover;
+			}
+			.gallery .box-container .box .content{
+				position: absolute;
+				top: -100%;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				text-align: center;
+				background: rgba(0, 0, 0, 0.7);
+				padding: 2rem;
+				padding-top: 5rem;
+			}
+			.gallery .box-container .box:hover .content{
+				top: 0;
+			}
+			.gallery .box-container .box .content h3{
+				font-size: 2.5rem;
+				color: var(--orange);
+			}
+			.gallery .box-container .box .content p{
+				font-size: 1.5rem;
+				color: #eee;
+				padding: .5rem 0;
+			}
+			.footer{
+				background: #333;
+			}
+			.footer .box-container{
+				display: flex;
+				text-wrap: wrap;
+				gap: 1.5rem;
+			}
+			.footer .box-container .box{
+				padding: 1rem;
+				flex: 1 1 25rem;
+			}
+			.footer .box-container .box h3{
+				font-size: 2.5rem;
+				padding: .7rem 0;
+				color: #fff;
+			}
+			.footer .box-container .box p{
+				font-size: 1.5rem;
+				padding: .7rem 0;
+				color: #eee;
+			}
+			.footer .box-container .box a{
+				display: block;
+				font-size: 1.5rem;
+				padding: .7rem 0;
+				color: #eee;
+			}
+			.footer .box-container .box a:hover{
+				color: var(--orange);
+				text-decoration: underline;
+			}
+			
+        @media  (max-width: 1200px){
+            html{
+                font-size: 55%;
+            }    
+        } 
+        @media  (max-width: 991px){
+            header{
+            padding: 2rem;
+            }
+            section{
+                padding: 2rem;
+            }
+        }
+        @media  (max-width: 768pxpx){
+            #menu-bar{
+                display: initial;
+            }
+            header .navbar{
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                background: #333;
+                border-top: .1rem solid rgba(255, 255, 2555, .2);
+                padding: 1rem 2rem;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            }
+            header .navbar.active{
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 100%);
+            }
+            header .navbar a{
+                display: block;
+                border-radius: .5rem;
+                padding: 1.5rem;
+                margin: 1.5rem 0;
+                background: #222;
+            }
+        }
+        @media  (max-width: 450px){
+            html{
+                font-size: 50%;
+            }   
+            .heading span{
+                font-size: 2.5rem;
+            } 
+        }
+
+        </style>
+
+<!--------------- Header section --------------->
+        <header>
+            <div id="menu-bar" class="fas fa-bars"></div>
+            <a href="index.html" class="logo"><span>TRAVEL</span>HAVEN</a>
+            <nav class="navbar">
+                <a href="index.html">HOME</a>
+                <a href="packages.html">PACKAGES</a>
+                <a href="gallery.html">GALLERY</a>
+                <a href="contact.html">CONTACT US</a>
+								<a href="about.html">ABOUT</a>
+                
+            </nav>
+
+						<div class="icons">
+							<i class="fas fa-search" id="search-btn"></i>
+							<i class="fas fa-user" data-target="#login-form-container" id="login-btn"></i>
+							</div>
+							
+						<form action="" class="search-bar-container">
+							<input type="search" id="search-bar" placeholder="search here...">
+							<label for="search-bar"></label>
+						</form>
+					</header>
+					
+							
+				<!--------------- Header section ends --------------->
+				
+				<!--------------- Login Form container --------------->
+				
+						<div class="login-form-container" id="login-form-container">
+							<i class="fas fa-times" id="form-close"></i>
+							<form action="">
+								<h3>LOGIN</h3>
+								<input type="email" class="box" placeholder="Enter your email" required="">
+								<input type="password" class="box" placeholder="Enter your password" required="">
+								<input type="submit" value="Login now" class="btn">
+								<input type="checkbox" id="remember">
+								<label for="remember">Remember Me</label>
+								<p>Forgot Password? <a href="#">Click Here</a></p>
+								<p>Don't have an account? <a href="#">Register Now</a></p>
+							</form>
+						</div>
+						
+					<script>
+						// JavaScript to handle showing/hiding the login form
+						const loginBtn = document.getElementById('login-btn');
+						const loginFormContainer = document.getElementById('login-form-container');
+						const formCloseBtn = document.getElementById('form-close');
+			
+						loginBtn.addEventListener('click', () => {
+							loginFormContainer.classList.add('active');
+						});
+			
+						formCloseBtn.addEventListener('click', () => {
+							loginFormContainer.classList.remove('active');
+						});
+					</script>
+			
+	<!--------------- Login Form container ends --------------->
+
+
+	<!--------------- Packages section --------------->
+	
+		<section class="packages" id="id">
+			     <h1 class="heading"><br>
+				 <p></p><br>
+				 <p></p><br>
+                <span>P</span>
+                <span>A</span>
+                <span>C</span>
+                <span>K</span>
+                <span>A</span>
+                <span>G</span>
+                <span>E</span>
+				<span>S</span>
+            </h1>
+			
+			<div class="box-container">
+				<div class="box">
+				<img src="https://i.postimg.cc/mgb9kwjy/IMG-7311.jpg" alt="">
+				<div class="content">
+					<h3><i class="fas fa-map-marker-alt"></i> Hawaii</h3>
+					<p>A tropical paradise of stunning natural beauty, warm Aloha spirit, and endless adventure.</p>
+					<div class="stars">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fa-solid fa-star-half-stroke"></i>
+					</div>
+					<div class="price">R19 500 <span>R23 895</span><small style="text-transform: none; font-style: italic; color: #444;"> pps</small></div>
+					<a href="book.html" class="btn">Book Now</a>
+				</div>
+				</div>
+				
+				<div class="box">
+				<img src="https://i.postimg.cc/QtdSxwnY/IMG-7313.jpg" alt="">
+				<div class="content">
+					<h3><i class="fas fa-map-marker-alt"></i> Maldives</h3>
+					<p>Tropical bliss in the Indian Ocean. Unwind in a beacgside villa, snorkel or dive with manta rays and whale sharks.</p>
+					<div class="stars">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+					</div>
+					<div class="price">R14 630 <span>R19 084</span><small style="text-transform: none; font-style: italic; color: #444;"> pps</small></div>
+					<a href="book.html" class="btn">Book Now</a>
+				</div>
+				</div>
+				
+				<div class="box">
+				<img src="https://i.postimg.cc/MH9vjj9c/pexels-pixabay-290597.jpg" alt="">
+				<div class="content">
+					<h3><i class="fas fa-map-marker-alt"></i> Singapore</h3>
+					<p>A fusion of East and West, where vibrant culture meets modern luxury. Discover street food, temples and world-class attractions.</p>
+					<div class="stars">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fa-solid fa-star-half-stroke"></i>
+					</div>
+					<div class="price">R16 927 <span>R21 273</span><small style="text-transform: none; font-style: italic; color: #444;"> pps</small></div>
+					<a href="book.html" class="btn">Book Now</a>
+				</div>
+			</div>
+			
+				<div class="box">
+				<img src="https://i.postimg.cc/V6K428rx/pexels-patrick-mclachlan-995764.jpg" alt="">
+				<div class="content">
+					<h3><i class="fas fa-map-marker-alt"></i> Sydney</h3>
+					<p>Iconic landmarks, stunning beaches and a vibrant cultural scene. Enjoy world-class resturants, museums and theaters.</p>
+					<div class="stars">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fa-solid fa-star-half-stroke"></i>
+					</div>
+					<div class="price">19 316 <span>R23 861</span><small style="text-transform: none; font-style: italic; color: #444;"> pps</small></div>
+					<a href="book.html" class="btn">Book Now</a>
+				</div>
+			</div>
+			
+							<div class="box">
+				<img src="https://i.postimg.cc/mgzttkCD/pexels-pixabay-259447.jpg" alt="">
+				<div class="content">
+					<h3><i class="fas fa-map-marker-alt"></i> Cape Town</h3>
+					<p>Discover breathtaking scenery, vibrant townships, and world-class wine regions. Explore Table Mountain and Boulders Beach.</p>
+					<div class="stars">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fa-solid fa-star-half-stroke"></i>
+					</div>
+					<div class="price">R5 330 <span>R9 075</span><small style="text-transform: none; font-style: italic; color: #444;"> pps</small></div>
+					<a href="book.html" class="btn">Book Now</a>
+				</div>
+			</div>
+			
+				<div class="box">
+				<img src="https://i.postimg.cc/L8XjvmfK/pexels-jimbear-2300342.jpg" alt="">
+				<div class="content">
+					<h3><i class="fas fa-map-marker-alt"></i> Hong Kong</h3>
+					<p>A city of contrasts, where neon-lit streets meet ancient nights. Explore bustling markets and indulge in world-class cuisine.</p>
+					<div class="stars">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+					</div>
+					<div class="price">R13 439 <span>R19 999</span><small style="text-transform: none; font-style: italic; color: #444;"> pps</small></div>
+					<a href="book.html" class="btn">Book Now</a>
+				</div>
+			</div>
+			
+				<div class="box">
+				<img src="https://i.postimg.cc/7YpqtVJH/pexels-nextvoyage-1470405.jpg" alt="">
+				<div class="content">
+					<h3><i class="fas fa-map-marker-alt"></i> Dubai</h3>
+					<p>Aluxurious oasis in the desert. Discover the world's tallest tower, luxurious shopping centers, and vibrant cultural experiences.</p>
+					<div class="stars">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+					</div>
+					<div class="price">R19 565 <span>R22 115</span><small style="text-transform: none; font-style: italic; color: #444;"> pps</small></div>
+					<a href="book.html" class="btn">Book Now</a>
+				</div>
+			</div>
+			
+				<div class="box">
+				<img src="https://i.postimg.cc/JnbTmRPY/pexels-2085960-17889942.jpg" alt="">
+				<div class="content">
+					<h3><i class="fas fa-map-marker-alt"></i> Barcelona</h3>
+					<p>A treasure trove of modernism, where art, architecture. Experience the city's rich culture, cuisine and nightlife.</p>
+					<div class="stars">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+					</div>
+					<div class="price">R39 680 <span>R44 999</span><small style="text-transform: none; font-style: italic; color: #444;"> pps</small></div>
+					<a href="book.html" class="btn">Book Now</a>
+				</div>
+			</div>
+			
+				<div class="box">
+				<img src="https://i.postimg.cc/hPnkX5m7/pexels-mark-neal-201020-2225442.jpg" alt="">
+				<div class="content">
+					<h3><i class="fas fa-map-marker-alt"></i> Rome</h3>
+					<p>A city steeped in history, art and architecture. Experience the warm hospitality and mouth-watering flavours of Italy's capital city.</p>
+					<div class="stars">
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fa-solid fa-star-half-stroke"></i>
+					</div>
+					<div class="price">R26 299 <span>R44 169</span><small style="text-transform: none; font-style: italic; color: #444;"> pps</small></div>
+					<a href="book.html" class="btn">Book Now</a>
+				</div>
+			</div>
+			</div>
+
+		</section>
+		
+	<!--------------- Packages section  ends--------------->
+	
+	<!--------------- Footer section --------------->
+	
+		<div class="footer">
+			<div class="box-container">
+				<div class="box">
+					<h3 style="color: #ffa500;">About Us</h3>
+					<p style="text-transform: none;"> At TravelHaven, we're passionate about creating unforgettable travel 
+						experiences that fit everyday budget. With years of expertise in the travel industry, our dedicated team is
+						committed to helping you explore the world without breaking the bank.</p>
+				</div>
+				
+				<div class="box">
+					<h3>Branch Locations</h3>
+					<a href="#"><i class="fas fa-map-marker-alt"></i> Durban </a>
+					<a href="#"><i class="fas fa-map-marker-alt"></i> Cape Town </a>
+					<a href="#"><i class="fas fa-map-marker-alt"></i> Johannesburg </a>
+					<a href="#"><i class="fas fa-map-marker-alt"></i> Pretoria </a>
+					<a href="#"><i class="fas fa-map-marker-alt"></i> Gqebherha </a>
+				</div>
+				
+				<div class="box">
+					<h3>Quick Links</h3>
+					<a href="index.html"> Home</a>
+					<a href="index.html"> Book</a>
+					<a href="packages.html"> Packages</a>
+					<a href="gallery.html"> Gallery</a>
+					<a href="contact.html"> Contact</a>
+				</div>
+				
+				<div class="box">
+					<h3>Follow us</h3>
+					<a href="#"></i>Facebook</a>
+					<a href="#"></i>Instagram</a>
+					<a href="#"></i>Twitter</a>
+					<a href="#"></i>TikTok</a>
+					<a href="#"></i>LinkedIn</a>
+				</div>
+			</div>
+		</div>
+		
+		
+	<!--------------- Footer section  ends--------------->
+     
+     <script>
+            let searchBtn = document.querySelector('search-btn');
+            let searchBar = document.querySelector('.search-bar-container');
+            let formBtn = document.querySelector('#login-btn');
+            let loginForm = document.querySelector('.login-form-container');
+            let formClose = document.querySelector('#form-close');
+            let menu = document.querySelector('#menu-bar');
+            let navbar = document.querySelector('.navbar');
+            let videoBtn = document.querySelectorAll('.vid-btn');
+
+            window.onscroll = () =>{
+                searchBtn.classList.remove('fa-times');
+                searchBar.classList.remove('active');
+                menu.classList.remove('fa-times');
+                navbar.classList.remove('active');
+                loginForm.classList.remove('active');
+            }
+
+            menu.addEventListener('click', () =>{
+                menu.classList.toggle('fa-times');
+                navbar.classList.toggle('active');
+            });
+
+            searchBtn.addEventListener('click', () =>{
+                searchBtn.classList.toggle('fa-times');
+                searchBar.classList.toggle('active');
+            });
+
+            formBtn.addEventListener('click', () =>{
+                loginForm.classList.add('active');
+            });
+
+            formClose.addEventListener('click', () =>{
+                loginForm.classList.remove('active');
+            });
+
+            videoBtn.forEach(btn =>{
+                btn.addEventListener('click', () => {
+                    document.querySelector('.controls .active').classList.remove('active');
+                    btn.classList.add('active');
+                    let src = btn.getAttribute("data-src");
+                    document.querySelector('#video-slider').src = src;
+                })
+            });
+
+        </script>
+    </body>
+</html>
